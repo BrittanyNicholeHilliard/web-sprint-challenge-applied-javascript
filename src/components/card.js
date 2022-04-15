@@ -1,12 +1,30 @@
-const Card = (article) => {
+import axios from 'axios';
+
+
+
+
+const Card = ({headline, authorPhoto, authorName}) => {
+
+
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
-  // It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.
+  // It takes as its only argument an "article" object with `headline`, 
+  //`authorPhoto` and `authorName` properties.
   // The tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
   // The text inside elements will be set using their `textContent` property (NOT `innerText`).
-  // Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
+  // Add a listener for click events so that when a user clicks on a card, the headline of the article
+  // is logged to the console.
   //
+
+const articleCard = document.createElement('div');
+const headlineDiv = document.createElement('div');
+const author = document.createElement('div');
+const imgContainer = document.createElement('div');
+const authorImg = document.createElement('img');
+const name = document.createElement('span');
+
+
   // <div class="card">
   //   <div class="headline">{ headline }</div>
   //   <div class="author">
@@ -17,9 +35,39 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+
+articleCard.classList.add('card');
+headlineDiv.classList.add('headline');
+author.classList.add('author');
+imgContainer.classList.add('img-container');
+authorImg.src = authorPhoto;
+
+articleCard.appendChild(headlineDiv);
+articleCard.appendChild(author);
+author.appendChild(imgContainer);
+imgContainer.appendChild(authorImg);
+author.appendChild(name);
+
+headlineDiv.textContent = `${headline}`;
+name.textContent = `${authorName}`;
+
+return articleCard;
+
 }
 
 const cardAppender = (selector) => {
+  
+  const entryPoint = document.querySelector(selector);
+
+  axios.get('http://localhost:5001/api/articles')
+  .then(res => {
+    console.log(res);
+  })
+.catch(err => {
+  console.error(err);
+})
+
+
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
