@@ -56,16 +56,14 @@ return articleCard;
 }
 
 const cardAppender = (selector) => {
-  
-  const entryPoint = document.querySelector(selector);
-
-  axios.get('http://localhost:5001/api/articles')
-  .then(res => {
-    console.log(res);
+  axios.get('http://localhost:5001/api/topics')
+  .then(resp => {
+   selector.appendChild(Tabs(resp.data.topics))
+    console.log(resp.data.topics);
   })
-.catch(err => {
-  console.error(err);
-})
+  .catch(err => console.error(err))
+
+
 
 
   // TASK 6
