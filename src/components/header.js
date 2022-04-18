@@ -34,11 +34,12 @@
     
     
     
-    //                     V selector is a varaiable
+    //                    
     const headerAppender = (selector) => {
-    
-    
-    
+      const appenderVar = document.querySelector(selector);
+      return appenderVar.appendChild(Header('whoop', '2/4/22', 98))
+
+        
       // TASK 2
       // ---------------------
       // Implement this function taking a css selector as its only argument.

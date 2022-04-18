@@ -58,8 +58,13 @@ return articleCard;
 const cardAppender = (selector) => {
   axios.get('http://localhost:5001/api/topics')
   .then(resp => {
-   selector.appendChild(Tabs(resp.data.topics))
-    console.log(resp.data.topics);
+console.log(resp);
+    //for (let i = 0; i < resp.data.topics; i++) {
+    //  appenderVal = document.querySelector(selector);
+   // appenderVal.appendChild(resp.data.topics[i])
+
+    //}
+
   })
   .catch(err => console.error(err))
 
