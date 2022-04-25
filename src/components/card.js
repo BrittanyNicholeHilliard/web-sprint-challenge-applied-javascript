@@ -60,13 +60,13 @@ const cardAppender = (selector) => {
   .then((resp) => {
     console.log(resp.data)
     console.log(resp.data.articles);
-    const cardArray = Object.entries(resp.data.articles);
-    console.log(cardArray)
 
+    // const cardArray = Object.entries(resp.data.articles);
+    // console.log(cardArray)
     // cardArray.forEach() => {
     //    //document.querySelector(selector).appendChild(Card(resp.data.articles[i]));
     // }
-     document.querySelector(selector).appendChild(Card(cardArray))
+    //selector.appendChild(Card(cardArray));
     
 
   })
