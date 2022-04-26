@@ -59,20 +59,19 @@ const cardAppender = (selector) => {
   axios.get('http://localhost:5001/api/articles')
   .then((resp) => {
     console.log(resp.data)
-    console.log(resp.data.articles);
-
-    // const cardArray = Object.entries(resp.data.articles);
-    // console.log(cardArray)
-    // cardArray.forEach() => {
-    //    //document.querySelector(selector).appendChild(Card(resp.data.articles[i]));
-    // }
-    //selector.appendChild(Card(cardArray));
-    
-
+   // console.log(resp.data.articles.bootstrap[0].headline);
+    const arrayVal = Object.entries(resp.data.articles);
+    console.log(arrayVal);
+    arrayVal.forEach(result => {
+     console.log(result);
+      
+    })
   })
+   // document.querySelector(selector).appendChild(Card({}))
   .catch((err) => {
     console.error(err);
   })
+
 }
 
 
